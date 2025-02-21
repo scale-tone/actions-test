@@ -1,0 +1,15 @@
+name: device-login-test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-20.04
+
+    steps:
+
+    - name: az login with device code
+      run: az login --use-device-code
+    

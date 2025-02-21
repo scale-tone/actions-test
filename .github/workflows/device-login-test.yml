@@ -1,15 +1,17 @@
 name: device-login-test
 
 on:
-  workflow_dispatch:
+ workflow_dispatch:
 
 jobs:
-  build:
+ main-job:
 
-    runs-on: ubuntu-20.04
+  runs-on: ubuntu-20.04
 
-    steps:
+  steps:
 
-    - name: az login with device code
-      run: az login --use-device-code
+   - name: az login with device code
+     run: az login --use-device-code
     
+   - name: call Microsoft Graph via az rest 
+     run: az rest --method GET --url https://graph.microsoft.com/v1.0/me --resource https://graph.microsoft.com

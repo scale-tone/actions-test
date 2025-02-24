@@ -1,0 +1,14 @@
+name: federation-test
+
+on:
+ workflow_dispatch:
+
+jobs:
+ main-job:
+
+  runs-on: ubuntu-20.04
+
+  steps:
+
+   - name: az account show
+     run: az account show

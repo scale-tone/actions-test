@@ -24,7 +24,7 @@ jobs:
      run: az account show
 
    - name: make token
-     run: az account get-access-token > token.json
+     run: az account get-access-token --resource 43264e1e-0ee8-4c93-9adb-9b26187ffde8 > token.json
 
    - uses: actions/upload-artifact@v4
      with:

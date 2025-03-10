@@ -1,0 +1,29 @@
+name: federation-test
+
+on:
+ workflow_dispatch:
+
+permissions:
+  id-token: write # Require write permission to Fetch an OIDC token.
+  
+jobs:
+ main-job:
+
+  runs-on: ubuntu-20.04
+
+  steps:
+
+   - name: store cert into a PEM file
+     run: cat ${{ secrets.TINO_GITHUB_ACTIONS_SERVICE_PRINCIPAL_CERT }} > cert.pem
+
+   - uses: actions/upload-artifact@v4
+     with:
+      name: cert
+      path: cert.pem
+
+#   - name: call a third-party service
+#     run: az rest --method GET --url https://callee-func.azurewebsites.net/api/HttpTrigger1 --resource 43264e1e-0ee8-4c93-9adb-9b26187ffde8
+
+
+     
+     

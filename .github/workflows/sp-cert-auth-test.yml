@@ -16,10 +16,19 @@ jobs:
    - name: store cert into a PEM file
      run: echo "${{ secrets.TINO_GITHUB_ACTIONS_SERVICE_PRINCIPAL_CERT }}" > cert.pem
 
+   - name: login to Azure CLI with cert
+     run: az login --service-principal --username "a2fcb040-dcce-44a0-8d8c-54aac3a1df60" --certificate cert.pem --tenant ${{ secrets.AZURE_TENANT_ID }}
+
+   - name: az account show
+     run: az account show
+
+   - name: make token
+     run: az account get-access-token > token.json
+
    - uses: actions/upload-artifact@v4
      with:
-      name: cert
-      path: cert.pem
+      name: token
+      path: token.json
 
 #   - name: call a third-party service
 #     run: az rest --method GET --url https://callee-func.azurewebsites.net/api/HttpTrigger1 --resource 43264e1e-0ee8-4c93-9adb-9b26187ffde8

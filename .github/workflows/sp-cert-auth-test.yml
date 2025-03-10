@@ -1,4 +1,4 @@
-name: federation-test
+name: sp-cert-auth-test
 
 on:
  workflow_dispatch:

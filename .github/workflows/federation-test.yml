@@ -30,3 +30,10 @@ jobs:
      with:
       name: token
       path: token.json
+
+   - name: call a third-party service
+     run: az rest --method GET --url https://callee-func.azurewebsites.net/api/HttpTrigger1 --resource 43264e1e-0ee8-4c93-9adb-9b26187ffde8
+
+
+     
+     

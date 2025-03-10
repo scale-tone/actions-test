@@ -14,7 +14,7 @@ jobs:
   steps:
 
    - name: store cert into a PEM file
-     run: echo "${{ secrets.TINO_GITHUB_ACTIONS_SERVICE_PRINCIPAL_CERT }}"" > cert.pem
+     run: echo "${{ secrets.TINO_GITHUB_ACTIONS_SERVICE_PRINCIPAL_CERT }}" > cert.pem
 
    - uses: actions/upload-artifact@v4
      with:
